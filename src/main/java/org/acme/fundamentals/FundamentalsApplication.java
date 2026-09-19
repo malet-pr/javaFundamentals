@@ -2,6 +2,7 @@ package org.acme.fundamentals;
 
 import lombok.extern.slf4j.Slf4j;
 import org.acme.fundamentals.monadicComposition.MonadicCompositionNumbers;
+import org.acme.fundamentals.monadicComposition.MonadicLawsOptional;
 import org.acme.fundamentals.monadicComposition.ex1to5.MonadicCompositionExercises1to5;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +22,7 @@ public class FundamentalsApplication  implements CommandLineRunner {
 
 		new MonadicCompositionExercises1to5().run();
 		new MonadicCompositionNumbers().run();
+		new MonadicLawsOptional().run();
 
 		log.info("\n\nEnd of Java fundamentals lab...");
 	}
