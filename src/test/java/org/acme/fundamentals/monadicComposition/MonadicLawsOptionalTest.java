@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 
-public class MonadicLawsTest {
+public class MonadicLawsOptionalTest {
 
     static MonadicLawsOptional mlo = new MonadicLawsOptional();
 
@@ -113,9 +113,9 @@ public class MonadicLawsTest {
     @MethodSource("thirdMonadicLawCases")
     @DisplayName("Test the third monadic law")
     public <T,V,S> void thirdMonadicLawTest(String description, Optional<T> m,
-                                            Function<T,Optional<V>> function2, Function<V,Optional<S>> function3) {
-        Optional<S> r1 = m.flatMap(function2).flatMap(function3);
-        Optional<S> r2 = m.flatMap(x -> function2.apply(x).flatMap(function3));
+                                            Function<T,Optional<V>> function1, Function<V,Optional<S>> function2) {
+        Optional<S> r1 = m.flatMap(function1).flatMap(function2);
+        Optional<S> r2 = m.flatMap(x -> function1.apply(x).flatMap(function2));
         Assertions.assertEquals(r1, r2);
     }
 
