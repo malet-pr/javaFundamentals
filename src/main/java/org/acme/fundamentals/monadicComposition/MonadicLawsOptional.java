@@ -33,10 +33,10 @@ public class MonadicLawsOptional {
         System.out.println("Second Monadic Law:");
         Optional<Integer> m1 = doubleIfPositive.apply(4);
         Optional<Integer> left1 = m1.flatMap(Optional::of);
-        System.out.println(m1.get().equals(left1.get()) ? "holds for positive" : "doesn't hold for positive");
-        Optional<Integer> m2 = doubleIfPositive.apply(4);
+        System.out.println(m1.equals(left1) ? "holds for positive" : "doesn't hold for positive");
+        Optional<Integer> m2 = doubleIfPositive.apply(-4);
         Optional<Integer> left2 = m2.flatMap(Optional::of);
-        System.out.println(m2.get().equals(left2.get()) ? "holds for negative" : "doesn't hold for negative");
+        System.out.println(m2.equals(left2) ? "holds for negative" : "doesn't hold for negative");
         System.out.println("Third Monadic Law:");
         Optional<Integer> m3 = doubleIfPositive.apply(4);
         Optional<String> r5 = m3.flatMap(halfIfEven).flatMap(stringifyIfSmall);
